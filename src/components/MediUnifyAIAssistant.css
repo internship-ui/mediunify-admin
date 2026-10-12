@@ -1,0 +1,477 @@
+/* ==========================================================================
+   MediUnify AI Assistant - Modern Healthcare Animation & Design System
+   ========================================================================== */
+
+:root {
+  --mu-teal: #00A896;
+  --mu-teal-glow: #00D2C4;
+  --mu-teal-light: #E6F8F6;
+  --mu-navy: #1E3A8A;
+  --mu-navy-dark: #0F172A;
+  --mu-cyan: #06B6D4;
+  --mu-bubble-bg: #FFFFFF;
+  --mu-bubble-border: rgba(0, 168, 150, 0.2);
+  --mu-bubble-shadow: 0 10px 25px -5px rgba(0, 168, 150, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Base Container */
+.mediunify-ai-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+  opacity: 0.94;
+  transform: scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 8px;
+}
+
+/* 1 & 2. Robot Activation State */
+.mediunify-ai-container.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Floating variant (e.g. pinned in bottom-right corner) */
+.mediunify-ai-container.floating {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  flex-direction: row-reverse;
+}
+
+/* Hero variant (e.g. on patient welcome screen) */
+.mediunify-ai-container.hero {
+  flex-direction: column;
+  text-align: center;
+  padding: 24px;
+  gap: 18px;
+}
+
+/* Card variant */
+.mediunify-ai-container.card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 168, 150, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 168, 150, 0.08);
+  padding: 16px 20px;
+}
+
+/* ==========================================================================
+   Robot Avatar & Floating Animation
+   ========================================================================== */
+
+.mediunify-ai-robot-wrapper {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: mediunify-float 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.mediunify-ai-container.hero .mediunify-ai-robot-wrapper {
+  width: 104px;
+  height: 104px;
+}
+
+/* Click/Tap Micro-interaction */
+.mediunify-ai-robot-wrapper:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.mediunify-ai-robot-wrapper:active,
+.mediunify-ai-robot-wrapper.is-clicked {
+  transform: scale(0.94);
+}
+
+/* Subtle Teal Glow Ring around Robot */
+.mediunify-ai-glow-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 196, 0.32) 0%, rgba(0, 168, 150, 0.08) 55%, transparent 72%);
+  filter: blur(8px);
+  pointer-events: none;
+  animation: mediunify-glow-pulse 3.6s ease-in-out infinite alternate;
+}
+
+/* SVG Robot Frame */
+.mediunify-robot-svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 10px rgba(0, 168, 150, 0.18));
+}
+
+.mediunify-robot-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Image Fallback Mode */
+.mediunify-image-robot-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mediunify-image-robot {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 168, 150, 0.2));
+}
+
+/* ==========================================================================
+   Eye Glowing & Natural Blinking
+   ========================================================================== */
+
+.mediunify-ai-eyes {
+  animation: mediunify-eye-glow 3s ease-in-out infinite alternate;
+  transform-origin: center;
+  transition: opacity 0.1s ease;
+}
+
+.mediunify-ai-eyes.is-blinking {
+  opacity: 0.15;
+  transform: scaleY(0.1);
+}
+
+/* Center Medical Cross Heartbeat Glow */
+.mediunify-center-cross {
+  animation: mediunify-cross-heartbeat 2.8s ease-in-out infinite;
+  transform-origin: 60px 74px;
+}
+
+/* ==========================================================================
+   Hand Wave & Greeting Gesture
+   ========================================================================== */
+
+.mediunify-waving-arm {
+  transform-origin: 30px 45px;
+  transition: transform 0.3s ease;
+}
+
+.mediunify-waving-arm.animate-wave {
+  animation: mediunify-hand-wave 1.4s ease-in-out infinite;
+}
+
+.mediunify-wave-sparkles path {
+  animation: mediunify-wave-ripple 1s ease-out infinite;
+}
+
+/* ==========================================================================
+   Active Status Indicator Dot
+   ========================================================================== */
+
+.mediunify-status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.mediunify-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+  border: 1.5px solid #FFFFFF;
+  z-index: 2;
+}
+
+.mediunify-status-pulse {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.45);
+  animation: mediunify-status-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ==========================================================================
+   Healthcare Speech Bubble
+   ========================================================================== */
+
+.mediunify-speech-bubble {
+  position: relative;
+  background: var(--mu-bubble-bg);
+  border: 1px solid var(--mu-bubble-border);
+  border-radius: 16px;
+  padding: 12px 18px;
+  box-shadow: var(--mu-bubble-shadow);
+  max-width: 280px;
+  min-width: 220px;
+  cursor: pointer;
+  animation: mediunify-bubble-enter 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  will-change: transform, opacity;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.mediunify-speech-bubble:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 168, 150, 0.4);
+  box-shadow: 0 14px 28px -4px rgba(0, 168, 150, 0.16);
+}
+
+/* Speech Bubble Header */
+.mediunify-bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.mediunify-bubble-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mu-teal);
+  background: var(--mu-teal-light);
+  padding: 2px 7px;
+  border-radius: 9999px;
+}
+
+.mediunify-bubble-sparkle {
+  font-size: 10px;
+  color: #00D2C4;
+}
+
+.mediunify-bubble-time {
+  font-size: 10px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* Speech Bubble Text */
+.mediunify-bubble-text {
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: #1E293B;
+  min-height: 22px;
+  word-break: break-word;
+}
+
+/* Typing Cursor */
+.mediunify-typing-cursor {
+  display: inline-block;
+  color: var(--mu-teal);
+  font-weight: 300;
+  animation: mediunify-blink-cursor 0.75s step-end infinite;
+  margin-left: 2px;
+}
+
+/* Speech Bubble Pointer Tail */
+.mediunify-bubble-arrow {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 8px solid var(--mu-bubble-bg);
+  filter: drop-shadow(-2px 0 1px rgba(0, 168, 150, 0.1));
+}
+
+/* Pointer Tail positioning for Floating & Hero variants */
+.mediunify-ai-container.floating .mediunify-bubble-arrow {
+  left: auto;
+  right: -8px;
+  border-right: none;
+  border-left: 8px solid var(--mu-bubble-bg);
+  filter: drop-shadow(2px 0 1px rgba(0, 168, 150, 0.1));
+}
+
+.mediunify-ai-container.hero .mediunify-bubble-arrow {
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 8px solid var(--mu-bubble-bg);
+  border-top: none;
+  filter: drop-shadow(0 -2px 1px rgba(0, 168, 150, 0.1));
+}
+
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+/* 2. Gentle Floating/Breathing Animation */
+@keyframes mediunify-float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Soft Ambient Glow Pulse */
+@keyframes mediunify-glow-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1.1);
+  }
+}
+
+/* 2. Glowing Eyes Soft Pulse */
+@keyframes mediunify-eye-glow {
+  0% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px #00D2C4);
+  }
+}
+
+/* Center Cross Heartbeat */
+@keyframes mediunify-cross-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.08);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* 3. Hand Wave Motion */
+@keyframes mediunify-hand-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-16deg) translateY(-2px);
+  }
+  40% {
+    transform: rotate(8deg) translateY(-1px);
+  }
+  60% {
+    transform: rotate(-14deg) translateY(-2px);
+  }
+  80% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Wave Ripple Motion Effect */
+@keyframes mediunify-wave-ripple {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.9) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4) translate(-4px, -4px);
+  }
+}
+
+/* 4. Speech Bubble Smooth Entrance */
+@keyframes mediunify-bubble-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateX(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+/* Cursor Blink */
+@keyframes mediunify-blink-cursor {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Status Indicator Ping */
+@keyframes mediunify-status-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .mediunify-ai-container {
+    gap: 10px;
+    padding: 4px;
+  }
+
+  .mediunify-ai-container.floating {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .mediunify-speech-bubble {
+    max-width: 220px;
+    min-width: 180px;
+    padding: 10px 14px;
+  }
+
+  .mediunify-bubble-text {
+    font-size: 13px;
+  }
+
+  .mediunify-ai-robot-wrapper {
+    width: 64px;
+    height: 64px;
+  }
+}
