@@ -29,6 +29,441 @@ export const SURGERY_CATEGORIES = [
   'Vascular & Cardiac'
 ];
 
+export const DEFAULT_SURGERY_SPECIALIZATIONS = [
+  'Knee Replacement',
+  'Hip Replacement',
+  'Joint Replacement',
+  'Cardiac Surgery',
+  'Neurosurgery',
+  'Orthopaedic Surgery',
+  'Spine Surgery',
+  'General Surgery',
+  'Laparoscopic Surgery',
+  'Ophthalmology (Eye) Surgery',
+  'Urology & Nephro Surgery',
+  'ENT & Head-Neck Surgery',
+  'Gynecology Surgery',
+  'Vascular Surgery',
+  'Plastic & Reconstructive Surgery',
+  'Pediatric Surgery'
+];
+
+export const HOSPITAL_TYPES = [
+  'Super Specialty Surgical Hospital',
+  'Multi-Specialty Hospital',
+  'Orthopaedic & Joint Center',
+  'Cardiac & Neuro Super Specialty',
+  'Day-Care Surgical Center',
+  'Tertiary Care University Hospital',
+  'Charitable & Trust Hospital'
+];
+
+// Initial Onboarded Hospitals Database
+export const INITIAL_HOSPITALS = [
+  {
+    id: 'HOSP-MY-001',
+    name: 'A R Hospital',
+    type: 'Super Specialty Surgical Hospital',
+    address: '#42, Sayyaji Rao Road, Near Fountain Circle',
+    city: 'Mysore',
+    state: 'Karnataka',
+    pincode: '570020',
+    contactPerson: 'Dr. Arvind Rao',
+    contactMobile: '+91 98450 11223',
+    contactEmail: 'admissions@arhospital.org',
+    specializations: [
+      'Knee Replacement',
+      'Hip Replacement',
+      'Joint Replacement',
+      'Orthopaedic Surgery',
+      'General Surgery',
+      'Spine Surgery'
+    ],
+    preferredNotification: 'Both',
+    whatsappNumber: '+91 98450 11223',
+    notificationEmail: 'surgery-leads@arhospital.org',
+    status: 'Active',
+    rating: 4.8,
+    totalSurgeriesCompleted: 340,
+    establishedYear: 2012,
+    bedCount: 160,
+    icuBeds: 24,
+    onboardedDate: '2025-04-10'
+  },
+  {
+    id: 'HOSP-MY-002',
+    name: 'Apollo BGS Hospitals',
+    type: 'Multi-Specialty Hospital',
+    address: 'Adichunchanagiri Road, Kuvempunagar',
+    city: 'Mysore',
+    state: 'Karnataka',
+    pincode: '570023',
+    contactPerson: 'Sneha Kulkarni',
+    contactMobile: '+91 98800 23456',
+    contactEmail: 'referrals.mysore@apollobgs.com',
+    specializations: [
+      'Cardiac Surgery',
+      'Neurosurgery',
+      'Spine Surgery',
+      'Knee Replacement',
+      'Joint Replacement',
+      'Orthopaedic Surgery',
+      'General Surgery',
+      'Laparoscopic Surgery',
+      'Vascular Surgery'
+    ],
+    preferredNotification: 'Email',
+    whatsappNumber: '+91 98800 23456',
+    notificationEmail: 'referrals.mysore@apollobgs.com',
+    status: 'Active',
+    rating: 4.9,
+    totalSurgeriesCompleted: 620,
+    establishedYear: 2004,
+    bedCount: 250,
+    icuBeds: 45,
+    onboardedDate: '2025-02-15'
+  },
+  {
+    id: 'HOSP-BLR-001',
+    name: 'Manipal Hospital (Old Airport Road)',
+    type: 'Super Specialty Surgical Hospital',
+    address: '#98, HAL Old Airport Road, Kodihalli',
+    city: 'Bangalore',
+    state: 'Karnataka',
+    pincode: '560017',
+    contactPerson: 'Vikramaditya Hegde',
+    contactMobile: '+91 99160 55432',
+    contactEmail: 'desksurgery@manipalhospitals.com',
+    specializations: [
+      'Cardiac Surgery',
+      'Neurosurgery',
+      'Spine Surgery',
+      'Knee Replacement',
+      'Hip Replacement',
+      'Joint Replacement',
+      'Orthopaedic Surgery',
+      'General Surgery',
+      'Laparoscopic Surgery'
+    ],
+    preferredNotification: 'WhatsApp',
+    whatsappNumber: '+91 99160 55432',
+    notificationEmail: 'desksurgery@manipalhospitals.com',
+    status: 'Active',
+    rating: 4.9,
+    totalSurgeriesCompleted: 890,
+    establishedYear: 1991,
+    bedCount: 600,
+    icuBeds: 90,
+    onboardedDate: '2025-01-20'
+  },
+  {
+    id: 'HOSP-BLR-002',
+    name: 'Sparsh Hospital for Advanced Surgeries',
+    type: 'Orthopaedic & Joint Center',
+    address: '#146, Infantry Road, Tasker Town',
+    city: 'Bangalore',
+    state: 'Karnataka',
+    pincode: '560001',
+    contactPerson: 'Meenakshi Sundaram',
+    contactMobile: '+91 94801 66772',
+    contactEmail: 'jointcare@sparshhospital.com',
+    specializations: [
+      'Knee Replacement',
+      'Hip Replacement',
+      'Joint Replacement',
+      'Orthopaedic Surgery',
+      'Spine Surgery'
+    ],
+    preferredNotification: 'WhatsApp',
+    whatsappNumber: '+91 94801 66772',
+    notificationEmail: 'jointcare@sparshhospital.com',
+    status: 'Active',
+    rating: 4.7,
+    totalSurgeriesCompleted: 480,
+    establishedYear: 2008,
+    bedCount: 180,
+    icuBeds: 28,
+    onboardedDate: '2025-03-05'
+  },
+  {
+    id: 'HOSP-BLR-003',
+    name: 'Narayana Institute of Cardiac & Neuro Sciences',
+    type: 'Cardiac & Neuro Super Specialty',
+    address: 'Bommasandra Industrial Area, Anekal Taluk',
+    city: 'Bangalore',
+    state: 'Karnataka',
+    pincode: '560099',
+    contactPerson: 'Dr. Pradeep George',
+    contactMobile: '+91 97410 88991',
+    contactEmail: 'surgerydesk@narayanahealth.org',
+    specializations: [
+      'Cardiac Surgery',
+      'Neurosurgery',
+      'Vascular Surgery',
+      'Spine Surgery',
+      'General Surgery'
+    ],
+    preferredNotification: 'Both',
+    whatsappNumber: '+91 97410 88991',
+    notificationEmail: 'surgerydesk@narayanahealth.org',
+    status: 'Active',
+    rating: 4.8,
+    totalSurgeriesCompleted: 750,
+    establishedYear: 2000,
+    bedCount: 450,
+    icuBeds: 80,
+    onboardedDate: '2025-02-01'
+  },
+  {
+    id: 'HOSP-MDY-001',
+    name: 'Mandya Institute of Medical Sciences (MIMS Hospital)',
+    type: 'Tertiary Care University Hospital',
+    address: 'Bangalore-Mysore Highway, Gandhi Nagar',
+    city: 'Mandya',
+    state: 'Karnataka',
+    pincode: '571401',
+    contactPerson: 'Dr. Jayaramu Gowda',
+    contactMobile: '+91 94482 11990',
+    contactEmail: 'admin.surgery@mimsmandya.org',
+    specializations: [
+      'General Surgery',
+      'Orthopaedic Surgery',
+      'Knee Replacement',
+      'Laparoscopic Surgery',
+      'Spine Surgery'
+    ],
+    preferredNotification: 'Email',
+    whatsappNumber: '+91 94482 11990',
+    notificationEmail: 'admin.surgery@mimsmandya.org',
+    status: 'Active',
+    rating: 4.6,
+    totalSurgeriesCompleted: 290,
+    establishedYear: 2006,
+    bedCount: 300,
+    icuBeds: 35,
+    onboardedDate: '2025-05-12'
+  },
+  {
+    id: 'HOSP-MY-003',
+    name: 'Cauvery Specialty Hospital',
+    type: 'Day-Care Surgical Center',
+    address: 'Bannur Road, Siddhartha Layout',
+    city: 'Mysore',
+    state: 'Karnataka',
+    pincode: '570011',
+    contactPerson: 'Hitesh Nambiar',
+    contactMobile: '+91 98455 77881',
+    contactEmail: 'care@cauverysurgical.in',
+    specializations: [
+      'Knee Replacement',
+      'Joint Replacement',
+      'General Surgery',
+      'Laparoscopic Surgery',
+      'Orthopaedic Surgery'
+    ],
+    preferredNotification: 'WhatsApp',
+    whatsappNumber: '+91 98455 77881',
+    notificationEmail: 'care@cauverysurgical.in',
+    status: 'Inactive',
+    statusReason: 'Upgrading surgical suite laminar airflow and OT equipment through November 2026',
+    rating: 4.4,
+    totalSurgeriesCompleted: 180,
+    establishedYear: 2016,
+    bedCount: 75,
+    icuBeds: 12,
+    onboardedDate: '2025-06-01'
+  },
+  {
+    id: 'HOSP-BLR-004',
+    name: 'Sankara Eye Super Specialty Hospital',
+    type: 'Super Specialty Surgical Hospital',
+    address: 'Varthur Road, Kundalahalli Gate, Whitefield',
+    city: 'Bangalore',
+    state: 'Karnataka',
+    pincode: '560037',
+    contactPerson: 'Dr. Radhika Ramesh',
+    contactMobile: '+91 98450 99881',
+    contactEmail: 'cataract@sankaraeye.com',
+    specializations: [
+      'Ophthalmology (Eye) Surgery'
+    ],
+    preferredNotification: 'WhatsApp',
+    whatsappNumber: '+91 98450 99881',
+    notificationEmail: 'cataract@sankaraeye.com',
+    status: 'Active',
+    rating: 4.9,
+    totalSurgeriesCompleted: 1200,
+    establishedYear: 2007,
+    bedCount: 150,
+    icuBeds: 10,
+    onboardedDate: '2025-01-15'
+  }
+];
+
+/**
+ * Intelligent Surgery to Hospital Specialization Matching Engine
+ * Returns ONLY ACTIVE hospitals matching patient needed surgery or category.
+ * Inactive hospitals remain in the directory and are explicitly excluded from new referral recommendations.
+ */
+export function getMatchingHospitals(patient, hospitals = INITIAL_HOSPITALS) {
+  if (!patient || !hospitals) return [];
+
+  const needed = (patient.neededSurgery || '').toLowerCase();
+  const category = (patient.surgeryCategory || '').toLowerCase();
+
+  const targetSpecializations = new Set();
+
+  if (needed.includes('knee') || needed.includes('tkr')) {
+    targetSpecializations.add('Knee Replacement');
+    targetSpecializations.add('Joint Replacement');
+    targetSpecializations.add('Orthopaedic Surgery');
+  }
+  if (needed.includes('hip') || needed.includes('thr')) {
+    targetSpecializations.add('Hip Replacement');
+    targetSpecializations.add('Joint Replacement');
+    targetSpecializations.add('Orthopaedic Surgery');
+  }
+  if (needed.includes('joint') || needed.includes('arthroscopy') || needed.includes('acl')) {
+    targetSpecializations.add('Joint Replacement');
+    targetSpecializations.add('Orthopaedic Surgery');
+    targetSpecializations.add('Knee Replacement');
+  }
+  if (
+    needed.includes('cardiac') ||
+    needed.includes('heart') ||
+    needed.includes('angioplasty') ||
+    needed.includes('stent') ||
+    needed.includes('bypass') ||
+    needed.includes('cabg') ||
+    category.includes('cardiac') ||
+    category.includes('vascular')
+  ) {
+    targetSpecializations.add('Cardiac Surgery');
+    targetSpecializations.add('Vascular Surgery');
+  }
+  if (
+    needed.includes('spine') ||
+    needed.includes('discectomy') ||
+    needed.includes('acdf') ||
+    needed.includes('cervical') ||
+    needed.includes('lumbar') ||
+    category.includes('spine')
+  ) {
+    targetSpecializations.add('Spine Surgery');
+    targetSpecializations.add('Neurosurgery');
+  }
+  if (needed.includes('neuro') || needed.includes('brain') || category.includes('neuro')) {
+    targetSpecializations.add('Neurosurgery');
+    targetSpecializations.add('Spine Surgery');
+  }
+  if (
+    needed.includes('hernia') ||
+    needed.includes('append') ||
+    needed.includes('cholecyst') ||
+    needed.includes('hemorrhoid') ||
+    needed.includes('gallbladder') ||
+    category.includes('general')
+  ) {
+    targetSpecializations.add('General Surgery');
+    targetSpecializations.add('Laparoscopic Surgery');
+  }
+  if (
+    needed.includes('cataract') ||
+    needed.includes('lasik') ||
+    needed.includes('smile') ||
+    needed.includes('eye') ||
+    category.includes('ophthalmology')
+  ) {
+    targetSpecializations.add('Ophthalmology (Eye) Surgery');
+  }
+  if (
+    needed.includes('prostate') ||
+    needed.includes('kidney') ||
+    needed.includes('pcnl') ||
+    needed.includes('stone') ||
+    category.includes('urology')
+  ) {
+    targetSpecializations.add('Urology & Nephro Surgery');
+    targetSpecializations.add('General Surgery');
+  }
+  if (
+    needed.includes('sinus') ||
+    needed.includes('fess') ||
+    needed.includes('septoplasty') ||
+    needed.includes('thyroid') ||
+    category.includes('ent')
+  ) {
+    targetSpecializations.add('ENT & Head-Neck Surgery');
+    targetSpecializations.add('General Surgery');
+  }
+  if (needed.includes('laparoscop') || needed.includes('keyhole') || category.includes('laparoscopy')) {
+    targetSpecializations.add('Laparoscopic Surgery');
+    targetSpecializations.add('General Surgery');
+  }
+  if (
+    needed.includes('endometrio') ||
+    needed.includes('hysterect') ||
+    needed.includes('ovarian') ||
+    category.includes('gynecology')
+  ) {
+    targetSpecializations.add('Gynecology Surgery');
+    targetSpecializations.add('Laparoscopic Surgery');
+  }
+
+  // Filter ONLY ACTIVE hospitals that have matching specializations
+  return hospitals
+    .filter((h) => h.status === 'Active')
+    .filter((h) => {
+      const hospitalSpecs = h.specializations || [];
+      return hospitalSpecs.some((spec) => {
+        if (targetSpecializations.has(spec)) return true;
+        const specLower = spec.toLowerCase();
+        return needed.includes(specLower) || category.includes(specLower);
+      });
+    })
+    .map((h) => {
+      const hospitalSpecs = h.specializations || [];
+      const matched = hospitalSpecs.filter((spec) => {
+        if (targetSpecializations.has(spec)) return true;
+        const specLower = spec.toLowerCase();
+        return needed.includes(specLower) || category.includes(specLower);
+      });
+      return {
+        ...h,
+        matchedSpecializations: matched.length > 0 ? matched : hospitalSpecs
+      };
+    });
+}
+
+/**
+ * Returns inactive hospitals that match the surgery specialization.
+ * Used for system transparency to show why an inactive hospital is excluded.
+ */
+export function getInactiveMatchingHospitals(patient, hospitals = INITIAL_HOSPITALS) {
+  if (!patient || !hospitals) return [];
+
+  const needed = (patient.neededSurgery || '').toLowerCase();
+  const category = (patient.surgeryCategory || '').toLowerCase();
+
+  const targetSpecializations = new Set();
+  if (needed.includes('knee') || needed.includes('tkr')) targetSpecializations.add('Knee Replacement');
+  if (needed.includes('joint')) targetSpecializations.add('Joint Replacement');
+  if (needed.includes('spine')) targetSpecializations.add('Spine Surgery');
+  if (needed.includes('cardiac')) targetSpecializations.add('Cardiac Surgery');
+  if (needed.includes('hernia') || category.includes('general')) targetSpecializations.add('General Surgery');
+
+  return hospitals
+    .filter((h) => h.status === 'Inactive')
+    .filter((h) => {
+      const hospitalSpecs = h.specializations || [];
+      return hospitalSpecs.some((spec) => {
+        if (targetSpecializations.has(spec)) return true;
+        const specLower = spec.toLowerCase();
+        return needed.includes(specLower) || category.includes(specLower);
+      });
+    });
+}
+
 export const MULTI_CITY_SURGERY_LOCALITIES = [
   'All Localities',
   // Mysore
@@ -83,7 +518,34 @@ export const INITIAL_SURGERY_PATIENTS = [
     requestedDate: '2026-09-19',
     urgency: 'High Priority',
     estimatedCost: '₹75,000',
-    notes: 'Recurrent biliary colic, USG confirmed 8mm gallstones. Resident of Gokulam 3rd Stage, Mysore.'
+    notes: 'Recurrent biliary colic, USG confirmed 8mm gallstones. Resident of Gokulam 3rd Stage, Mysore.',
+    forwardStatus: 'Forwarded',
+    forwardedHospital: {
+      hospitalId: 'HOSP-MY-002',
+      hospitalName: 'Apollo BGS Hospitals',
+      method: 'Email',
+      sentAt: '2026-09-19 11:30 AM',
+      target: 'referrals.mysore@apollobgs.com'
+    },
+    hospitalResponse: 'Consultation Scheduled',
+    hospitalResponseNotes: 'Surgical gastroenterology consultation scheduled with Dr. Suresh for 25 Sept. Pre-anesthetic checkup requested.',
+    timeline: [
+      {
+        status: 'Inquiry Registered',
+        timestamp: '19 Sep 2026, 09:15 AM',
+        note: 'Patient inquiry registered for Laparoscopic Cholecystectomy.'
+      },
+      {
+        status: 'Forwarded to Hospital',
+        timestamp: '19 Sep 2026, 11:30 AM',
+        note: 'Referred to Apollo BGS Hospitals via Email with USG report summary.'
+      },
+      {
+        status: 'Consultation Scheduled',
+        timestamp: '20 Sep 2026, 02:45 PM',
+        note: 'Hospital confirmed OP consultation slot on 25 Sept.'
+      }
+    ]
   },
   {
     patientId: 'MY-SURG-2026-082',
@@ -98,7 +560,34 @@ export const INITIAL_SURGERY_PATIENTS = [
     requestedDate: '2026-09-20',
     urgency: 'Elective',
     estimatedCost: '₹1,95,000',
-    notes: 'Grade IV Osteoarthritis, severe mobility issues. Kuvempunagar M-Block, Mysore.'
+    notes: 'Grade IV Osteoarthritis, severe mobility issues. Kuvempunagar M-Block, Mysore.',
+    forwardStatus: 'Forwarded',
+    forwardedHospital: {
+      hospitalId: 'HOSP-MY-001',
+      hospitalName: 'A R Hospital',
+      method: 'Both',
+      sentAt: '2026-09-20 02:15 PM',
+      target: '+91 98450 11223 / surgery-leads@arhospital.org'
+    },
+    hospitalResponse: 'Quotation Received',
+    hospitalResponseNotes: 'Package quotation ₹1,85,000 received for Zimmer Biomet high-flex knee implant. Dr. Arvind Rao reviewed X-rays.',
+    timeline: [
+      {
+        status: 'Inquiry Registered',
+        timestamp: '20 Sep 2026, 10:00 AM',
+        note: 'Patient inquiry registered for Total Knee Replacement.'
+      },
+      {
+        status: 'Forwarded to Hospital',
+        timestamp: '20 Sep 2026, 02:15 PM',
+        note: 'Referred to A R Hospital via WhatsApp (+91 98450 11223) & Email.'
+      },
+      {
+        status: 'Quotation Received',
+        timestamp: '21 Sep 2026, 11:30 AM',
+        note: 'Quotation of ₹1,85,000 received from Dr. Arvind Rao. Patient notified.'
+      }
+    ]
   },
   {
     patientId: 'MY-SURG-2026-083',
@@ -113,7 +602,18 @@ export const INITIAL_SURGERY_PATIENTS = [
     requestedDate: '2026-09-21',
     urgency: 'High Priority',
     estimatedCost: '₹1,15,000',
-    notes: 'Sports injury during Chamundi Hill run. Complete ACL tear on 3T MRI scan.'
+    notes: 'Sports injury during Chamundi Hill run. Complete ACL tear on 3T MRI scan.',
+    forwardStatus: 'Not Forwarded',
+    forwardedHospital: null,
+    hospitalResponse: 'Pending',
+    hospitalResponseNotes: '',
+    timeline: [
+      {
+        status: 'Inquiry Registered',
+        timestamp: '21 Sep 2026, 09:30 AM',
+        note: 'Sports knee injury inquiry registered. Awaiting hospital matching & forwarding.'
+      }
+    ]
   },
   {
     patientId: 'MY-SURG-2026-084',
@@ -349,6 +849,8 @@ export function downloadSurgeryPatientsExcel(patients) {
     'Requested Date',
     'Urgency',
     'Estimated Cost (INR)',
+    'Forwarded Hospital',
+    'Hospital Response Status',
     'Clinical Remarks'
   ];
 
@@ -371,6 +873,8 @@ export function downloadSurgeryPatientsExcel(patients) {
     escapeCSV(p.requestedDate),
     escapeCSV(p.urgency),
     escapeCSV(p.estimatedCost),
+    escapeCSV(p.forwardedHospital?.hospitalName || 'Not Forwarded'),
+    escapeCSV(p.hospitalResponse || 'Pending'),
     escapeCSV(p.notes)
   ]);
 

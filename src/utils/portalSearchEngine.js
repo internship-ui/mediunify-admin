@@ -7,7 +7,7 @@ import { LAB_TESTS, LAB_CATEGORIES, LAB_PACKAGES, LAB_SAMPLES, LAB_BOOKINGS } fr
 import { INITIAL_EQUIPMENT_REQUESTS, REGISTERED_VENDORS } from '../data/equipmentRentalData';
 import { PHARMACY_MEDICINES, PHARMACY_ORDERS } from '../data/pharmacyData';
 import { RADIOLOGY_MODALITIES, RADIOLOGY_BOOKINGS } from '../data/radiologyData';
-import { INITIAL_SURGERY_PATIENTS, SURGERY_CATEGORIES } from '../data/surgeryData';
+import { INITIAL_SURGERY_PATIENTS, SURGERY_CATEGORIES, INITIAL_HOSPITALS } from '../data/surgeryData';
 
 /**
  * Returns an array of searchable items strictly scoped to the active currentService
@@ -242,8 +242,8 @@ export function getPortalSearchIndex(currentService, setActiveModule, onNavigate
     }
   }
 
-  // 5. PHARMACY
-  if (serviceId === 'pharmacy') {
+  // 5. PHARMACY & MULTIPLE PHARMACY
+  if (serviceId === 'pharmacy' || serviceId === 'third-party-pharmacy' || serviceId === 'multiple-pharmacy') {
     // (a) Medicine Catalog
     if (Array.isArray(PHARMACY_MEDICINES)) {
       PHARMACY_MEDICINES.forEach((med) => {
@@ -346,8 +346,24 @@ export function getPortalSearchIndex(currentService, setActiveModule, onNavigate
           iconName: 'HeartHandshake',
           badge: 'Procedure Category',
           badgeColor: 'bg-slate-100 text-slate-700',
-          keywords: `${cat.name} ${cat.description} surgery procedure specialty`,
-          action: () => handleAction('surgeries')
+          action: () => handleAction('requests')
+        });
+      });
+    }
+
+    // (c) Partner Hospitals
+    if (Array.isArray(INITIAL_HOSPITALS)) {
+      INITIAL_HOSPITALS.forEach((hosp) => {
+        items.push({
+          id: `surg-hosp-${hosp.id}`,
+          category: 'Partner Hospitals',
+          title: hosp.name,
+          subtitle: `${hosp.type} • ${hosp.city} • Specializations: ${(hosp.specializations || []).slice(0, 3).join(', ')} • Status: ${hosp.status}`,
+          iconName: 'Building2',
+          badge: hosp.status === 'Active' ? 'Active Hospital' : 'Inactive Hospital',
+          badgeColor: hosp.status === 'Active' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-slate-100 text-slate-700',
+          keywords: `${hosp.name} ${hosp.city} ${hosp.address} ${hosp.type} ${(hosp.specializations || []).join(' ')} hospital surgery clinic`,
+          action: () => handleAction('hospitals', { hospitalId: hosp.id })
         });
       });
     }

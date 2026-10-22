@@ -58,10 +58,10 @@ export const SERVICES_CONFIG = [
     },
     modules: [
       { id: 'dashboard', name: 'Dashboard', iconName: 'LayoutDashboard' },
-      { id: 'orders', name: 'Imaging Orders', iconName: 'ClipboardList' },
-      { id: 'catalogue', name: 'Imaging Catalogue', iconName: 'ScanLine' },
+      { id: 'orders', name: 'Scan Orders', iconName: 'ClipboardList' },
+      { id: 'catalogue', name: 'Scan Catalogue', iconName: 'ScanLine' },
       { id: 'centers', name: 'Radiology Centers', iconName: 'Building2' },
-      { id: 'machines', name: 'Machines', iconName: 'Server' },
+      { id: 'machines', name: 'Sub Scans', iconName: 'Layers' },
       { id: 'slots', name: 'Slot Management', iconName: 'Clock' },
       { id: 'reports', name: 'Reports', iconName: 'FileText' },
       { id: 'pricing-tat', name: 'Pricing & TAT', iconName: 'DollarSign' },
@@ -94,10 +94,40 @@ export const SERVICES_CONFIG = [
       { id: 'dashboard', name: 'Dashboard', iconName: 'LayoutDashboard' },
       { id: 'inventory', name: 'Inventory', iconName: 'Warehouse' },
       { id: 'orders', name: 'Orders', iconName: 'ShoppingBag' },
-      { id: 'prescriptions', name: 'Prescriptions', iconName: 'FileCheck' },
       { id: 'delivery', name: 'Delivery Tracking', iconName: 'Truck' },
       { id: 'reports', name: 'Reports', iconName: 'BarChart3' },
       { id: 'settings', name: 'Settings', iconName: 'Sliders' },
+    ]
+  },
+  {
+    id: 'third-party-pharmacy',
+    name: 'Multiple Pharmacy',
+    fullName: 'Multiple Pharmacy Operations',
+    subtitle: 'Multi-Store Stock Monitoring & Operations',
+    description: 'Monitor multiple pharmacy medicines, stock levels, orders, and delivery fulfillment.',
+    iconName: 'Store',
+    colorKey: 'green',
+    primaryColor: '#059669',
+    badgeColor: 'bg-brand-green-50 text-brand-green-700 border-brand-green-200',
+    iconContainerClass: 'bg-brand-green-50 text-brand-green-700 border-brand-green-200 group-hover:bg-brand-green-600 group-hover:text-white',
+    accentGradient: 'from-brand-green-500 to-brand-teal-600',
+    statsSummary: {
+      totalMedicines: 1240,
+      lowStockAlerts: 8,
+      pendingOrders: 27,
+      revenueToday: '₹96,500',
+    },
+    demoCredentials: {
+      email: 'multipharmacy.admin@mediunify.com',
+      password: 'password123',
+    },
+    modules: [
+      { id: 'dashboard', name: 'Dashboard', iconName: 'LayoutDashboard' },
+      { id: 'inventory', name: 'Inventory & Stock', iconName: 'Warehouse' },
+      { id: 'orders', name: 'Orders & Rx', iconName: 'ShoppingBag' },
+      { id: 'delivery', name: 'Delivery Tracking', iconName: 'Truck' },
+      { id: 'reports', name: 'Reports & Audits', iconName: 'BarChart3' },
+      { id: 'settings', name: 'Hub Settings', iconName: 'Sliders' },
     ]
   },
   {
@@ -129,6 +159,7 @@ export const SERVICES_CONFIG = [
       { id: 'vendors', name: 'Vendors', iconName: 'Building2' },
       { id: 'active-rentals', name: 'Active Rentals', iconName: 'Clock4' },
       { id: 'completed-rentals', name: 'Completed Rentals', iconName: 'CheckCircle2' },
+      { id: 'earnings', name: 'Earnings & Rental Value', iconName: 'TrendingUp' },
     ]
   },
 
@@ -155,10 +186,8 @@ export const SERVICES_CONFIG = [
       password: 'password123',
     },
     modules: [
-      { id: 'dashboard', name: 'Patient Directory', iconName: 'LayoutDashboard' },
-      { id: 'surgeries', name: 'Needed Surgeries', iconName: 'Activity' },
-      { id: 'contacts', name: 'Contact Roster', iconName: 'Users' },
-      { id: 'export', name: 'Excel Report', iconName: 'FileSpreadsheet' },
+      { id: 'requests', name: 'Surgery Requests', iconName: 'Activity' },
+      { id: 'hospitals', name: 'Hospital Management', iconName: 'Building2' },
     ]
   },
   {

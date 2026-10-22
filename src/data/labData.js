@@ -690,36 +690,21 @@ export const INITIAL_LAB_ORDERS = [
       scheduledTime: '10:00 AM',
       center: 'Nova Diagnostics & Laboratory Centre',
       patientAddress: 'Vijayanagar, Bengaluru',
-      assignedCollector: {
-        id: 'PH1004',
-        name: 'Suresh Kumar',
-        phone: '+91 98765 43211',
-        vehicle: 'KA-04-SK-1004',
-        status: 'Available',
-        location: 'Near Patient'
-      },
-      collectorMilestones: [
-        { step: 'ASSIGNED', title: 'Phlebotomist Assigned', timestamp: '01 Oct 10:30 AM', status: 'pending' },
-        { step: 'ACCEPTED', title: 'Phlebotomist Accepted', timestamp: '02 Oct 09:20 AM', status: 'pending' },
-        { step: 'ON_THE_WAY', title: 'On The Way', timestamp: '02 Oct 09:30 AM', status: 'pending' },
-        { step: 'ARRIVED', title: 'Arrived at Patient', timestamp: '02 Oct 09:55 AM', status: 'pending' },
-        { step: 'PATIENT_VERIFIED', title: 'Patient Verified', timestamp: '02 Oct 09:58 AM', status: 'pending' },
-        { step: 'COLLECTION_STARTED', title: 'Collection Started', timestamp: '02 Oct 10:00 AM', status: 'pending' },
-        { step: 'SAMPLE_COLLECTED', title: 'Samples Collected', timestamp: '02 Oct 10:12 AM', status: 'pending' }
-      ]
+      assignedCollector: null,
+      collectorMilestones: []
     },
     sampleDetails: {
-      status: 'Pending',
-      sampleIds: ['SMP10001', 'SMP10002', 'SMP10003'],
-      barcode: 'BC10001-A',
-      collectionTime: '02 October 2026, 10:12 AM',
-      receivedTime: '02 October 2026, 11:05 AM',
-      collectorName: 'Suresh Kumar',
-      condition: 'Good / Cold Chain Intact',
-      remarks: 'All 3 required specimen containers sealed and barcoded.',
+      status: 'Pending Verification',
+      sampleIds: [],
+      barcode: null,
+      collectionTime: null,
+      receivedTime: null,
+      collectorName: 'Unassigned',
+      condition: 'Pending Collection',
+      remarks: 'Awaiting administrative verification and collector assignment.',
       samples: [
         {
-          sampleId: 'SMP10001',
+          sampleId: null,
           sampleNumber: 'Sample 01',
           sampleType: 'Blood',
           relatedTests: 'Complete Blood Count (CBC)',
@@ -727,14 +712,14 @@ export const INITIAL_LAB_ORDERS = [
           tubeContainer: 'EDTA blood collection tube',
           tubeIdentifier: 'Purple / EDTA (2ml)',
           status: 'Pending',
-          collectionTime: '10:12 AM',
-          receivedTime: '11:05 AM',
-          collector: 'Suresh Kumar',
-          condition: 'Good',
-          barcode: 'BC10001-A'
+          collectionTime: null,
+          receivedTime: null,
+          collector: null,
+          condition: 'Pending',
+          barcode: null
         },
         {
-          sampleId: 'SMP10002',
+          sampleId: null,
           sampleNumber: 'Sample 02',
           sampleType: 'Blood',
           relatedTests: 'Fasting Blood Glucose, HbA1c, Lipid Profile, Liver Function Test, Kidney Function Test',
@@ -742,14 +727,14 @@ export const INITIAL_LAB_ORDERS = [
           tubeContainer: 'Sodium Fluoride & SST Gel Vacutainer tubes',
           tubeIdentifier: 'Grey (2ml) & Gold Top (4ml)',
           status: 'Pending',
-          collectionTime: '10:12 AM',
-          receivedTime: '11:05 AM',
-          collector: 'Suresh Kumar',
-          condition: 'Good',
-          barcode: 'BC10001-B'
+          collectionTime: null,
+          receivedTime: null,
+          collector: null,
+          condition: 'Pending',
+          barcode: null
         },
         {
-          sampleId: 'SMP10003',
+          sampleId: null,
           sampleNumber: 'Sample 03',
           sampleType: 'Urine',
           relatedTests: 'Routine Urine Examination',
@@ -757,38 +742,30 @@ export const INITIAL_LAB_ORDERS = [
           tubeContainer: 'Urine specimen container',
           tubeIdentifier: 'Sterile Urine Container (50ml)',
           status: 'Pending',
-          collectionTime: '10:12 AM',
-          receivedTime: '11:05 AM',
-          collector: 'Suresh Kumar',
-          condition: 'Good',
-          barcode: 'BC10001-C'
+          collectionTime: null,
+          receivedTime: null,
+          collector: null,
+          condition: 'Pending',
+          barcode: null
         }
       ],
       issuesHistory: []
     },
     processingDetails: {
       status: 'Pending',
-      analyzer: 'Beckman Coulter AU480 & Sysmex XN-550',
-      startedAt: '02 Oct 11:30 AM',
-      expectedCompletion: '03 Oct 09:30 AM',
+      analyzer: null,
+      startedAt: null,
+      expectedCompletion: null,
       completedAt: null,
-      testsStatus: [
-        { testName: 'Complete Blood Count (CBC)', code: 'HEM-CBC-01', analyzer: 'Sysmex XN-550', status: 'Pending' },
-        { testName: 'Fasting Blood Glucose', code: 'BIO-GLU-01', analyzer: 'Beckman AU480', status: 'Pending' },
-        { testName: 'HbA1c', code: 'BIO-HBA1C-03', analyzer: 'Bio-Rad D-10 HPLC', status: 'Pending' },
-        { testName: 'Lipid Profile', code: 'BIO-LIP-04', analyzer: 'Beckman AU480', status: 'Pending' },
-        { testName: 'Liver Function Test', code: 'BIO-LFT-05', analyzer: 'Beckman AU480', status: 'Pending' },
-        { testName: 'Kidney Function Test', code: 'BIO-KFT-06', analyzer: 'Beckman AU480', status: 'Pending' },
-        { testName: 'Routine Urine Examination', code: 'PAT-URN-11', analyzer: 'Dirui FUS-2000 Urinalysis', status: 'Pending' }
-      ]
+      testsStatus: []
     },
     reportDetails: {
-      reportId: 'REP10001',
-      status: 'Pending',
-      uploadedDate: '03 Oct 09:30 AM',
-      verifiedDate: '03 Oct 10:00 AM',
-      deliveredDate: '03 Oct 10:05 AM',
-      verifiedBy: 'Dr. Ramesh S. Rao, MD (Chief Pathologist)',
+      reportId: null,
+      status: 'Pending Verification',
+      uploadedDate: null,
+      verifiedDate: null,
+      deliveredDate: null,
+      verifiedBy: null,
       deliveryStatus: 'Pending Verification',
       deliveryChannels: ['WhatsApp (+91 9876543210)', 'Email (rahul.kumar@gmail.com)']
     },
@@ -800,9 +777,9 @@ export const INITIAL_LAB_ORDERS = [
     paymentStatus: 'Paid',
     paymentMethod: 'Online Payment (Razorpay UPI)',
     totalAmount: 3499,
-    assignedStaff: 'Suresh Kumar',
-    sampleId: 'SMP10001',
-    reportId: 'REP10001',
+    assignedStaff: null,
+    sampleId: null,
+    reportId: null,
     bookingDate: '2026-10-01 10:20 AM',
     timeline: [
       {

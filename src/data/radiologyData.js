@@ -239,7 +239,262 @@ export const RADIOLOGY_MACHINES = [
   }
 ];
 
-// 3. IMAGING CATALOGUE MASTER
+// 2B. RADIOLOGY SUB SCANS MASTER
+export const INITIAL_RADIOLOGY_SUB_SCANS = [
+  // --- MRI Sub Scans ---
+  {
+    id: 'SUB-MRI-01',
+    code: 'MRI-BRAIN',
+    name: 'MRI Brain',
+    modality: 'MRI',
+    bodyPart: 'Brain & Cranium',
+    duration: '30 - 45 min',
+    preparation: 'Remove all metallic accessories. 4 hours fasting if contrast indicated.',
+    centers: ['Saraswathipuram Reference Hub', 'Indiranagar Neuro Hub'],
+    fastingRequired: true,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-MRI-02',
+    code: 'MRI-SPINE',
+    name: 'MRI Spine (Lumbar / Cervical)',
+    modality: 'MRI',
+    bodyPart: 'Spine & Vertebrae',
+    duration: '25 - 35 min',
+    preparation: 'Wear loose metal-free cotton gown. Inform tech of implants.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-MRI-03',
+    code: 'MRI-LEGS',
+    name: 'MRI Legs & Knee Joint',
+    modality: 'MRI',
+    bodyPart: 'Knee Joint & Lower Extremities',
+    duration: '25 min',
+    preparation: 'No fasting needed. Arrive 15 minutes before slot.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-MRI-04',
+    code: 'MRI-SHOULDER',
+    name: 'MRI Shoulder & Joints',
+    modality: 'MRI',
+    bodyPart: 'Shoulder & Musculoskeletal',
+    duration: '25 min',
+    preparation: 'No special preparation required.',
+    centers: ['Saraswathipuram Reference Hub', 'Indiranagar Neuro Hub'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-MRI-05',
+    code: 'MRI-ABDOMEN',
+    name: 'MRI Abdomen & Pelvis',
+    modality: 'MRI',
+    bodyPart: 'Abdomen & Pelvis',
+    duration: '35 - 40 min',
+    preparation: '4 hours fasting. Drink water as instructed.',
+    centers: ['Saraswathipuram Reference Hub'],
+    fastingRequired: true,
+    status: 'Active'
+  },
+
+  // --- CT Scan Sub Scans ---
+  {
+    id: 'SUB-CT-01',
+    code: 'CT-CHEST',
+    name: 'CT Chest (HRCT)',
+    modality: 'CT Scan',
+    bodyPart: 'Lungs & Thorax',
+    duration: '10 - 15 min',
+    preparation: 'Volumetric breath-holding scan. No fasting for non-contrast.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-CT-02',
+    code: 'CT-BRAIN',
+    name: 'CT Brain / Head',
+    modality: 'CT Scan',
+    bodyPart: 'Brain & Cranium',
+    duration: '10 min',
+    preparation: 'Rapid emergency screening. No dietary restrictions.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-CT-03',
+    code: 'CT-ABDOMEN',
+    name: 'CT Abdomen & Pelvis',
+    modality: 'CT Scan',
+    bodyPart: 'Abdomen & Viscera',
+    duration: '15 - 20 min',
+    preparation: 'Oral contrast 1 hour prior to scan. 4 hours fasting.',
+    centers: ['Saraswathipuram Reference Hub', 'Jayalakshmipuram Suite'],
+    fastingRequired: true,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-CT-04',
+    code: 'CT-SPINE',
+    name: 'CT Spine',
+    modality: 'CT Scan',
+    bodyPart: 'Cervical & Lumbar Spine',
+    duration: '10 - 15 min',
+    preparation: 'Sub-millimeter multiplanar bone reconstruction.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-CT-05',
+    code: 'CT-ANGIO',
+    name: 'CT Angiography',
+    modality: 'CT Scan',
+    bodyPart: 'Cardiovascular & Peripheral Vessels',
+    duration: '20 min',
+    preparation: 'Fasting 4 hours. Renal function / Serum creatinine report mandatory.',
+    centers: ['Saraswathipuram Reference Hub', 'Indiranagar Neuro Hub'],
+    fastingRequired: true,
+    status: 'Active'
+  },
+
+  // --- X-Ray Sub Scans ---
+  {
+    id: 'SUB-XRAY-01',
+    code: 'XRAY-CHEST',
+    name: 'Digital X-Ray Chest',
+    modality: 'X-Ray',
+    bodyPart: 'Chest / Lungs & Heart',
+    duration: '5 min',
+    preparation: 'Remove metallic necklaces and clothing before exposure.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-XRAY-02',
+    code: 'XRAY-SPINE',
+    name: 'Digital X-Ray Spine',
+    modality: 'X-Ray',
+    bodyPart: 'Cervical & Lumbar Spine',
+    duration: '10 min',
+    preparation: 'AP & Lateral standing views. No special preparation.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-XRAY-03',
+    code: 'XRAY-LEGS',
+    name: 'Digital X-Ray Legs & Knee',
+    modality: 'X-Ray',
+    bodyPart: 'Knee Joint & Lower Limbs',
+    duration: '10 min',
+    preparation: 'Standing weight-bearing views. No fasting.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-XRAY-04',
+    code: 'XRAY-PELVIS',
+    name: 'Digital X-Ray Pelvis & Hips',
+    modality: 'X-Ray',
+    bodyPart: 'Pelvis & Hip Joints',
+    duration: '5 - 10 min',
+    preparation: 'Empty bladder before radiography.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+
+  // --- Ultrasound Sub Scans ---
+  {
+    id: 'SUB-USG-01',
+    code: 'USG-ABDOMEN',
+    name: 'Ultrasound Abdomen & Pelvis',
+    modality: 'Ultrasound',
+    bodyPart: 'Abdomen & Pelvic Viscera',
+    duration: '15 - 20 min',
+    preparation: 'Overnight fasting of 6 - 8 hours. Full urinary bladder required.',
+    centers: ['All Centers'],
+    fastingRequired: true,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-USG-02',
+    code: 'USG-OBS',
+    name: 'Ultrasound Obstetric / Anomaly',
+    modality: 'Ultrasound',
+    bodyPart: 'Obstetric & Fetal Anatomy',
+    duration: '25 - 30 min',
+    preparation: 'Comfortably full bladder. Bring prior antenatal reports.',
+    centers: ['All Centers'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-USG-03',
+    code: 'USG-LEGS-DOPPLER',
+    name: 'Ultrasound Legs Doppler',
+    modality: 'Ultrasound',
+    bodyPart: 'Lower Limb Venous & Arterial',
+    duration: '20 - 25 min',
+    preparation: 'Acoustic vascular evaluation. No dietary fasting needed.',
+    centers: ['Saraswathipuram Reference Hub', 'Kuvempunagar Center'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+
+  // --- Mammography Sub Scans ---
+  {
+    id: 'SUB-MAMMO-01',
+    code: 'MAMMO-BILATERAL',
+    name: 'Bilateral Digital Mammography',
+    modality: 'Mammography',
+    bodyPart: 'Breast Tissue Screening',
+    duration: '15 min',
+    preparation: 'Do not use deodorant, talcum powder or lotions on chest/underarms.',
+    centers: ['Saraswathipuram Reference Hub', 'Jayalakshmipuram Suite'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+  {
+    id: 'SUB-MAMMO-02',
+    code: 'MAMMO-3D',
+    name: '3D Breast Tomosynthesis',
+    modality: 'Mammography',
+    bodyPart: 'High-Density Breast Diagnostic',
+    duration: '20 min',
+    preparation: 'Avoid powders or body creams on the day of examination.',
+    centers: ['Saraswathipuram Reference Hub'],
+    fastingRequired: false,
+    status: 'Active'
+  },
+
+  // --- DEXA Sub Scans ---
+  {
+    id: 'SUB-DEXA-01',
+    code: 'DEXA-BMD',
+    name: 'DEXA Bone Mineral Density (BMD)',
+    modality: 'DEXA',
+    bodyPart: 'Lumbar Spine & Dual Femur',
+    duration: '15 min',
+    preparation: 'Avoid calcium supplements 24h prior. Wear metal-free clothing.',
+    centers: ['Saraswathipuram Reference Hub', 'Kuvempunagar Center'],
+    fastingRequired: false,
+    status: 'Active'
+  }
+];
+
+// 3. SCAN CATALOGUE MASTER
 export const RADIOLOGY_CATALOGUE = [
   {
     id: 'SCAN-01',
